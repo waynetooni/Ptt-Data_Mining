@@ -15,7 +15,7 @@ URL = ('https://www.ptt.cc/bbs/joke/index.html')
 X = read_html(curl(URL, handle = new_handle("useragent" = "Mozilla/5.0")))
 page <- html_nodes(X,xpath = "//div[@class='btn-group btn-group-paging']/a")
 page <- gsub("<a class=\"btn wide\" href=\"/bbs/joke/index", replacement = "",page[2])
-page <- gsub(".html\">??? �W��</a>", replacement = "",page)
+page <- gsub(".html\">??? ?W??</a>", replacement = "",page)
 page <- as.integer(page)
 is.integer(page)
 page <- page + 1
@@ -25,15 +25,15 @@ for(k in 8950:9000){
   hrefURL <- paste0('https://www.ptt.cc/', data$hrefsLink[k])
   tryCatch({
     XX = read_html(curl(hrefURL, handle = new_handle("useragent" = "Mozilla/5.0")))
-    #�n���檺���O��o��
+    #?n????????O??o??
   },warning = function(war){
       hrefURL = ( 'https://www.ptt.cc/bbs/joke/M.1457951116.A.F7F.html' )
       XX = read_html(curl(hrefURL, handle = new_handle("useragent" = "Mozilla/5.0")))
-     #�p�G��warning�h��Xwarning,"MY_WARNING:  "�o�@��i�H�ۤv��
+     #?p?G??warning?h??Xwarning,"MY_WARNING:  "?o?@??i?H??v??
   },error = function(err) {
-     #�p�G��error�h��Xerror,"MY_Error:  "�o�@��i�H�ۤv��
+     #?p?G??error?h??Xerror,"MY_Error:  "?o?@??i?H??v??
   },finally = {
-     #�̫�@�w�n���檺���O�ο�X
+     #???@?w?n????????O??j?X
   })
   
   
@@ -93,22 +93,22 @@ for(k in 1 : length(hrefsLink)){
      hrefURL <- paste0('https://www.ptt.cc/', data$hrefsLink[k])
      tryCatch({
        XX = read_html(curl(hrefURL, handle = new_handle("useragent" = "Mozilla/5.0")))
-       #�n���檺���O��o��
+       #?n????????O??o??
      },warning = function(war){
        hrefURL = ( 'https://www.ptt.cc/bbs/joke/M.1457951116.A.F7F.html' )
        XX = read_html(curl(hrefURL, handle = new_handle("useragent" = "Mozilla/5.0")))
-       #�p�G��warning�h��Xwarning,"MY_WARNING:  "�o�@��i�H�ۤv��
+       #?p?G??warning?h??Xwarning,"MY_WARNING:  "?o?@??i?H??v??
      },error = function(err) {
-       #�p�G��error�h��Xerror,"MY_Error:  "�o�@��i�H�ۤv��
+       #?p?G??error?h??Xerror,"MY_Error:  "?o?@??i?H??v??
      },finally = {
-       #�̫�@�w�n���檺���O�ο�X
+       #???@?w?n????????O??j?X
      })
      
      pushNum <- html_nodes(XX,xpath = "//span[@class='hl push-tag']")
      length(pushNum)
      pushNum <- data.frame(length(pushNum))
      LOLNum <- html_nodes(XX,xpath = "//span[@class='f1 hl push-tag']")
-     LOLNumber <- grep('�N',LOLNum)
+     LOLNumber <- grep('?N',LOLNum)
      length(LOLNumber)
      LOLNum <- data.frame(length(LOLNumber))
      
@@ -204,13 +204,13 @@ for( index in (1:16000) ){
   }
 }
 
-Tmonth <-c(11,12,1,2,3,4,5,6,"������")
+Tmonth <-c(11,12,1,2,3,4,5,6,"??????")
 Tmonthpair <- c(nov,dec,jan,feb,mar,apr,may,2124,na)
 Tmo <- data.frame(Tmonth,Tmonthpair)
 Tmo
-histogram(x=Tmo$Tmonth, y  = Tmo$Tmonthpair ,main = "�C��o���",xlab= "���", ylab = "�峹�g��")
+histogram(x=Tmo$Tmonth, y  = Tmo$Tmonthpair ,main = "?C??o???",xlab= "???", ylab = "??r?g??")
 barplot(Tmo)
-barplot(Tmo$Tmonthpair, names.arg=Tmo$Tmonth, ylim=c(0,3000), ylab="�峹��", xlab="���")
+barplot(Tmo$Tmonthpair, names.arg=Tmo$Tmonth, ylim=c(0,3000), ylab="??r??", xlab="???")
 my.plot2 <- ggplot(Tmo, x = Tmo$Tmpnth, y= Tmo$Tmonthpair) + geom_histogram()
 my.plot2 <- my.plot2 + layer(
   geom = "bar",
@@ -229,7 +229,7 @@ newcsv <- read.csv("theme.csv")
 reply <- csv12[grep("Re:", csv12$name), ]
 nrow(reply)
 
-guess <- newcsv[grep("[�q��]", newcsv$main), ]
+guess <- newcsv[grep("[?q??]", newcsv$main), ]
 ddply()
 nrow(announce)
 guessname <- guess$name[1]
@@ -238,30 +238,30 @@ guesstime <- guess$time[1]
 
 damn <- data.frame(guessname, guesstime)
 
-xd <- newcsv[grep("[���]", newcsv$main), ]
+xd <- newcsv[grep("[???]", newcsv$main), ]
 xdname <- xd$name[1]
 
 xdtime <- xd$time[1]
 damn <- data.frame(guessname, guesstime)
 
-cold <- newcsv[grep("[�A�N]", newcsv$main), ]
+cold <- newcsv[grep("[?A?N]", newcsv$main), ]
 coldname <- cold$name[1]
 
 coldtime <- cold$time[1]
 damn <- data.frame(guessname, guesstime)
 
-joke <- newcsv[grep("[����]", newcsv$main), ]
+joke <- newcsv[grep("[????]", newcsv$main), ]
 jokename <- joke$name[1]
 
 jokestime <- joke$time[1]
 
 
-funny <- newcsv[grep("[���]", newcsv$main), ]
+funny <- newcsv[grep("[???]", newcsv$main), ]
 funnyname <- funny$name[1]
 
 funnytime <- funny$time[1]
 
-trans <- newcsv[grep("[½Ķ]", newcsv$main), ]
+trans <- newcsv[grep("[??]", newcsv$main), ]
 transname <- trans$name[1]
 
 transtime <- trans$time[1]
@@ -271,17 +271,17 @@ kusoname <- kuso$name[1]
 
 kusotime <- kuso$time[1]
 
-bullshit <- newcsv[grep("[���m]", newcsv$main), ]
+bullshit <- newcsv[grep("[???m]", newcsv$main), ]
 bullshitname <- bullshit$name[1]
 
 bullshittime <- bullshit$time[1]
 
-viedo <- newcsv[grep("[�v��]", newcsv$main), ]
+viedo <- newcsv[grep("[?v??]", newcsv$main), ]
 viedoname <- viedo$name[1]
 
 viedotime <- viedo$time[1]
 
-announce <- newcsv[grep("[���i]", newcsv$main), ]
+announce <- newcsv[grep("[???i]", newcsv$main), ]
 announcename <- announce$name[1]
 
 announcetime <- announce$time[1]
@@ -300,7 +300,7 @@ Cv = ddply(bullshit, c("main"), summarise, MM = sum(contentNum))
 Cv = ddply(viedo, c("main"), summarise, MM = sum(contentNum))
 Cv = ddply(announce, c("main"), summarise, MM = sum(contentNum))
 
-pv <- c("[�q��]","[���]","[�A�N]","[����]","[���]","[½Ķ]","[kuso]","[���m]","[�v��]")
+pv <- c("[?q??]","[???]","[?A?N]","[????]","[???]","[??]","[kuso]","[???m]","[?v??]")
 cv <- c(1854,1339,1450,1099,767,56,318,50,43)
 cvpv <- data.frame(pv,cv)
 cvpv
@@ -316,22 +316,22 @@ kuso1 <- data.frame(nrow(kuso))
 bullshit1 <- data.frame(nrow(bullshit))
 viedo1 <- data.frame(nrow(viedo))
 announce1 <- data.frame(nrow(announce))
-������ <- data.frame(1091)
+?????? <- data.frame(1091)
 theme <- data.frame()
 
-theme <- data.frame(guess1,xd1,cold1,joke1,funny1,trans1,kuso1,bullshit1,viedo1,announce1,������)
+theme <- data.frame(guess1,xd1,cold1,joke1,funny1,trans1,kuso1,bullshit1,viedo1,announce1,??????)
 
-names(theme)[1] = "[�q��]"
-names(theme)[2] = "[���]"
-names(theme)[3] = "[�A�N]"
-names(theme)[4] = "[����]"
-names(theme)[5] = "[���]"
-names(theme)[6] = "[½Ķ]"
+names(theme)[1] = "[?q??]"
+names(theme)[2] = "[???]"
+names(theme)[3] = "[?A?N]"
+names(theme)[4] = "[????]"
+names(theme)[5] = "[???]"
+names(theme)[6] = "[??]"
 names(theme)[7] = "[kuso]"
-names(theme)[8] = "[���m]"
-names(theme)[9] = "[�v��]"
-names(theme)[10] = "[���i]"
-names(theme)[11] = "������"
+names(theme)[8] = "[???m]"
+names(theme)[9] = "[?v??]"
+names(theme)[10] = "[???i]"
+names(theme)[11] = "??????"
 
 grep("Re:", csv12$name[23])
 
@@ -359,36 +359,36 @@ bullshits <- 0
 temp <- data.frame()
 for( index in (1:1979) ){
   temp <- reply$name[index]
-    if(grepl("[�q��]",temp))
+    if(grepl("[?q??]",temp))
       guesss = guesss + 1
-    if(grepl("[���]",temp))
+    if(grepl("[???]",temp))
       xds = xds + 1 
-    if(grepl("[�A�N]",temp))
+    if(grepl("[?A?N]",temp))
      colds = colds + 1 
-    if(grepl("[����]",temp))
+    if(grepl("[????]",temp))
       jokes = jokes + 1 
-    if(grepl("[���]",temp))
+    if(grepl("[???]",temp))
       funnys =  funnys + 1 
-    if(grepl("[½Ķ]",temp))
+    if(grepl("[??]",temp))
       trans = trans + 1 
     if(grepl("[kuso]",temp))
       kusos = kusos + 1 
-    if(grepl("[���m]",temp))
+    if(grepl("[???m]",temp))
       bullshits = bullshits + 1 
    
   }
 }
 
 
-Tname <-c("[�q��]","[���]","[�A�N]","[����]","Re:","[���]","[½Ķ]","Fw:","[kuso]","[���m]","[�v��]","[���i]","������")
-Tnumber <- c(table(grepl('[�q��]',csv12$name))[2],table(grepl('[���]',csv12$name))[2],table(grepl('[�A�N]',csv12$name))[2],table(grepl('[����]',csv12$name))[2],table(grepl('Re:',csv12$name))[2],table(grepl('[���]',csv12$name))[2],table(grepl('[½Ķ]',csv12$name))[2],table(grepl('Fw:',csv12$name))[2],table(grepl('[kuso]',csv12$name))[2],table(grepl('[���m]',csv12$name))[2],table(grepl('[�v��]',csv12$name))[2],
-table(grepl('[���i]',csv12$name))[2],771)
+Tname <-c("[?q??]","[???]","[?A?N]","[????]","Re:","[???]","[??]","Fw:","[kuso]","[???m]","[?v??]","[???i]","??????")
+Tnumber <- c(table(grepl('[?q??]',csv12$name))[2],table(grepl('[???]',csv12$name))[2],table(grepl('[?A?N]',csv12$name))[2],table(grepl('[????]',csv12$name))[2],table(grepl('Re:',csv12$name))[2],table(grepl('[???]',csv12$name))[2],table(grepl('[??]',csv12$name))[2],table(grepl('Fw:',csv12$name))[2],table(grepl('[kuso]',csv12$name))[2],table(grepl('[???m]',csv12$name))[2],table(grepl('[?v??]',csv12$name))[2],
+table(grepl('[???i]',csv12$name))[2],771)
 Tnumber
 Title <- data.frame(Tname,Tnumber)
 Title
 
 
-table(grepl('[�q��]',csv12$name))[2]
+table(grepl('[?q??]',csv12$name))[2]
 Cv5$FF[88] <- m[2]
 Tdata <-csv12$name
 tadaa[1]<-Tdata[1]
@@ -419,15 +419,15 @@ View(title)
 
 
 library(plyr);   Cv = ddply(csv12, c("author"), summarise, FF=unique(length(time)), MM=sum(contentNum))  #-- Frequency & Monetary
-Cv$UU = Cv$MM/Cv$FF    #-- �p��ȳ�� (�����C���ʶR���B) (UU)
+Cv$UU = Cv$MM/Cv$FF    #-- ?p????? (?????C????R???B) (UU)
 Fbreaks = c(0,1,4,25,100,700,1810);                  Cv$FF0 <- cut(Cv$FF,breaks=Fbreaks);      
 Mbreaks = c(0,1000,3000,10000,30000,150000);   Cv$MM0 <- cut(Cv$MM,breaks=Mbreaks);  
 Ubreaks = c(-1,500,1000,4000,15000,100000);    Cv$UU0 <- cut(Cv$UU,breaks=Ubreaks);    
 dim(Cv);   head(Cv)
 
-# 4.�ƾڼҫ� -- �ȼh���R�A�O SPC �j�ƾڼҫ����Ĥ@�B�A�]�O�ƾګ������Ĥ@���p��
+# 4.????? -- ??h???R?A?O SPC ?j?????????@?B?A?]?O??????????@???p??
 
-## 4.1.RFM�ҫ������Ȥ���� (�`�Q��)
+## 4.1.RFM????????????? (?`?Q??)
 table(Cv$FF0,Cv$MM0)
 
 ##
@@ -449,12 +449,12 @@ DataN <- csv12[1:7000,]
 
 
 ##
-## 3.4.[�оǤ��e] ���Q�y�X�W��(FF)������
-range(Cv$FF)                       #-- (1) ���� FF�������d��               
-hist(Cv$FF,5);   table(Cv$FF)    #-- (2) �H�����(histogram)�Ptable�[�� FF�������˺A
-table(cut(Cv$FF,breaks=c(0,1,16,32,65,197,1810)))                                    #-- (3) ����������i��
-Cv$FF0 <- cut(Cv$FF,breaks=c(0,1,16,32,65,197,1810));    Fbreaks=c(0,1,16,32,65,197,1810)  #-- (4) ���N�������]�w
-Cv$MM0 <- cut(Cv$MM,breaks=c(0,50,75,100,250,500,9650));    Fbreaks=c(0,50,75,100,250,500,9650)  #-- (4) ���N�������]�w
+## 3.4.[?????e] ???Q?y?X?W??(FF)??????
+range(Cv$FF)                       #-- (1) ???? FF???????d??               
+hist(Cv$FF,5);   table(Cv$FF)    #-- (2) ?H?????(histogram)?Ptable?[?? FF????????A
+table(cut(Cv$FF,breaks=c(0,1,16,32,65,197,1810)))                                    #-- (3) ??????????i??
+Cv$FF0 <- cut(Cv$FF,breaks=c(0,1,16,32,65,197,1810));    Fbreaks=c(0,1,16,32,65,197,1810)  #-- (4) ???N???????]?w
+Cv$MM0 <- cut(Cv$MM,breaks=c(0,50,75,100,250,500,9650));    Fbreaks=c(0,50,75,100,250,500,9650)  #-- (4) ???N???????]?w
 Cv$UU = Cv$MM/Cv$FF
 table (Cv$FFO,Cv$MM0)
 ddply()
