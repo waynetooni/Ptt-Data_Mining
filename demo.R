@@ -51,7 +51,7 @@ for(k in 8950:9000){
   Sys.sleep(sample(3:5, 1))
 }
 
-write.csv(data, "10427103Final.csv", row.names = FALSE)
+write.csv(data, "Final.csv", row.names = FALSE)
 
  tt <- 1
   tt <- as.integer(tt)
