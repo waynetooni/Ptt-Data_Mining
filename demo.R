@@ -20,9 +20,6 @@ page <- as.integer(page)
 is.integer(page)
 page <- page + 1
 
-data <- data.frame()
-data = read.csv("10427103_T2.csv")
-total <- data.frame()
 
 for(k in 8950:9000){
   hrefURL <- paste0('https://www.ptt.cc/', data$hrefsLink[k])
