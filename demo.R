@@ -15,7 +15,7 @@ URL = ('https://www.ptt.cc/bbs/joke/index.html')
 X = read_html(curl(URL, handle = new_handle("useragent" = "Mozilla/5.0")))
 page <- html_nodes(X,xpath = "//div[@class='btn-group btn-group-paging']/a")
 page <- gsub("<a class=\"btn wide\" href=\"/bbs/joke/index", replacement = "",page[2])
-page <- gsub(".html\">??? ¤W­¶</a>", replacement = "",page)
+page <- gsub(".html\">??? ï¿½Wï¿½ï¿½</a>", replacement = "",page)
 page <- as.integer(page)
 is.integer(page)
 page <- page + 1
@@ -28,15 +28,15 @@ for(k in 8950:9000){
   hrefURL <- paste0('https://www.ptt.cc/', data$hrefsLink[k])
   tryCatch({
     XX = read_html(curl(hrefURL, handle = new_handle("useragent" = "Mozilla/5.0")))
-    #­n°õ¦æªº«ü¥O©ñ³o¸Ì
+    #ï¿½nï¿½ï¿½ï¿½æªºï¿½ï¿½ï¿½Oï¿½ï¿½oï¿½ï¿½
   },warning = function(war){
       hrefURL = ( 'https://www.ptt.cc/bbs/joke/M.1457951116.A.F7F.html' )
       XX = read_html(curl(hrefURL, handle = new_handle("useragent" = "Mozilla/5.0")))
-     #¦pªG¦³warning«h¿é¥Xwarning,"MY_WARNING:  "³o¤@¦æ¥i¥H¦Û¤v§ï
+     #ï¿½pï¿½Gï¿½ï¿½warningï¿½hï¿½ï¿½Xwarning,"MY_WARNING:  "ï¿½oï¿½@ï¿½ï¿½iï¿½Hï¿½Û¤vï¿½ï¿½
   },error = function(err) {
-     #¦pªG¦³error«h¿é¥Xerror,"MY_Error:  "³o¤@¦æ¥i¥H¦Û¤v§ï
+     #ï¿½pï¿½Gï¿½ï¿½errorï¿½hï¿½ï¿½Xerror,"MY_Error:  "ï¿½oï¿½@ï¿½ï¿½iï¿½Hï¿½Û¤vï¿½ï¿½
   },finally = {
-     #³Ì«á¤@©w­n°õ¦æªº«ü¥O©Î¿é¥X
+     #ï¿½Ì«ï¿½@ï¿½wï¿½nï¿½ï¿½ï¿½æªºï¿½ï¿½ï¿½Oï¿½Î¿ï¿½X
   })
   
   
@@ -54,7 +54,7 @@ for(k in 8950:9000){
   Sys.sleep(sample(3:5, 1))
 }
 
-write.csv(data, "10427103Final.csv", row.names = FALSE)
+write.csv(data, "Final.csv", row.names = FALSE)
 
  tt <- 1
   tt <- as.integer(tt)
@@ -96,22 +96,22 @@ for(k in 1 : length(hrefsLink)){
      hrefURL <- paste0('https://www.ptt.cc/', data$hrefsLink[k])
      tryCatch({
        XX = read_html(curl(hrefURL, handle = new_handle("useragent" = "Mozilla/5.0")))
-       #­n°õ¦æªº«ü¥O©ñ³o¸Ì
+       #ï¿½nï¿½ï¿½ï¿½æªºï¿½ï¿½ï¿½Oï¿½ï¿½oï¿½ï¿½
      },warning = function(war){
        hrefURL = ( 'https://www.ptt.cc/bbs/joke/M.1457951116.A.F7F.html' )
        XX = read_html(curl(hrefURL, handle = new_handle("useragent" = "Mozilla/5.0")))
-       #¦pªG¦³warning«h¿é¥Xwarning,"MY_WARNING:  "³o¤@¦æ¥i¥H¦Û¤v§ï
+       #ï¿½pï¿½Gï¿½ï¿½warningï¿½hï¿½ï¿½Xwarning,"MY_WARNING:  "ï¿½oï¿½@ï¿½ï¿½iï¿½Hï¿½Û¤vï¿½ï¿½
      },error = function(err) {
-       #¦pªG¦³error«h¿é¥Xerror,"MY_Error:  "³o¤@¦æ¥i¥H¦Û¤v§ï
+       #ï¿½pï¿½Gï¿½ï¿½errorï¿½hï¿½ï¿½Xerror,"MY_Error:  "ï¿½oï¿½@ï¿½ï¿½iï¿½Hï¿½Û¤vï¿½ï¿½
      },finally = {
-       #³Ì«á¤@©w­n°õ¦æªº«ü¥O©Î¿é¥X
+       #ï¿½Ì«ï¿½@ï¿½wï¿½nï¿½ï¿½ï¿½æªºï¿½ï¿½ï¿½Oï¿½Î¿ï¿½X
      })
      
      pushNum <- html_nodes(XX,xpath = "//span[@class='hl push-tag']")
      length(pushNum)
      pushNum <- data.frame(length(pushNum))
      LOLNum <- html_nodes(XX,xpath = "//span[@class='f1 hl push-tag']")
-     LOLNumber <- grep('¼N',LOLNum)
+     LOLNumber <- grep('ï¿½N',LOLNum)
      length(LOLNumber)
      LOLNum <- data.frame(length(LOLNumber))
      
@@ -144,44 +144,6 @@ for(k in 1 : length(hrefsLink)){
 #   tt <- nrow(name) + tt
 #   Sys.sleep(sample(3:5, 1))
 # }
-
-write.csv(data, "10427103F.csv", row.names = FALSE)
-csv1 = read.csv("10427103_TT.csv")
-View(csv1)
-csv2 = read.csv("10427103FinalGG.csv")
-View(csv2)
-data <- cbind(csv1,csv2)
-View(data)
-write.csv(data, "DamnnnGG.csv", row.names = FALSE)
-
-csv11 = read.csv("DamnnnGG.csv")
-View(csv11)
-ttt <- apply(csv11,1,as.list)
-
-temp <- data.frame()
-for(g in 1:length(csv11$text)){
-  contentNum <- nchar(ttt[[g]]$text)
-  contentNum <- data.frame(contentNum)
-  temp <- rbind(temp,contentNum)
-}
-
-data <- cbind(csv11,temp)
-
-write.csv(data, "DamnnnGGv2.csv", row.names = FALSE)
-
-csv12 = read.csv("DamnnGGv8.csv")
-
-#Cv11 = ddply(csv11, c("new_author"), summarise, FF=unique(length(new_date)))
-
-Cv = ddply(csv12, c("author"), summarise, FF=unique(length(time)), MM = sum(contentNum))  
-Cv2 <- csv12[,1]
-Cv2 <- gsub("Re: ", replacement ="",Cv2)
-Cv3 = ddply(csv12, c("Cv2"), summarise, FF=unique(length(time)))
-Cv4 <- substr(csv12$name,1,4)
-Cv5 = ddply(csv12, c("Cv4"), summarise, FF=unique(length(time)))
-clear(Cv5)
-csv12$time 
-View(csv12)
 
 
 csvt <- substr(csv12$time,5,7)
@@ -232,13 +194,13 @@ for( index in (1:16000) ){
   }
 }
 
-Tmonth <-c(11,12,1,2,3,4,5,6,"¥¼¤ÀÃþ")
+Tmonth <-c(11,12,1,2,3,4,5,6,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
 Tmonthpair <- c(nov,dec,jan,feb,mar,apr,may,2124,na)
 Tmo <- data.frame(Tmonth,Tmonthpair)
 Tmo
-histogram(x=Tmo$Tmonth, y  = Tmo$Tmonthpair ,main = "¨C¤ëµo¤å¼Æ",xlab= "¤ë¥÷", ylab = "¤å³¹½g¼Æ")
+histogram(x=Tmo$Tmonth, y  = Tmo$Tmonthpair ,main = "ï¿½Cï¿½ï¿½oï¿½ï¿½ï¿½",xlab= "ï¿½ï¿½ï¿½", ylab = "ï¿½å³¹ï¿½gï¿½ï¿½")
 barplot(Tmo)
-barplot(Tmo$Tmonthpair, names.arg=Tmo$Tmonth, ylim=c(0,3000), ylab="¤å³¹¼Æ", xlab="¤ë¥÷")
+barplot(Tmo$Tmonthpair, names.arg=Tmo$Tmonth, ylim=c(0,3000), ylab="ï¿½å³¹ï¿½ï¿½", xlab="ï¿½ï¿½ï¿½")
 my.plot2 <- ggplot(Tmo, x = Tmo$Tmpnth, y= Tmo$Tmonthpair) + geom_histogram()
 my.plot2 <- my.plot2 + layer(
   geom = "bar",
@@ -257,7 +219,7 @@ newcsv <- read.csv("theme.csv")
 reply <- csv12[grep("Re:", csv12$name), ]
 nrow(reply)
 
-guess <- newcsv[grep("[²qÁ¼]", newcsv$main), ]
+guess <- newcsv[grep("[ï¿½qï¿½ï¿½]", newcsv$main), ]
 ddply()
 nrow(announce)
 guessname <- guess$name[1]
@@ -266,25 +228,25 @@ guesstime <- guess$time[1]
 
 damn <- data.frame(guessname, guesstime)
 
-xd <- newcsv[grep("[¢æ¢Ò]", newcsv$main), ]
+xd <- newcsv[grep("[ï¿½ï¿½ï¿½]", newcsv$main), ]
 xdname <- xd$name[1]
 
 xdtime <- xd$time[1]
 damn <- data.frame(guessname, guesstime)
 
-cold <- newcsv[grep("[­A§N]", newcsv$main), ]
+cold <- newcsv[grep("[ï¿½Aï¿½N]", newcsv$main), ]
 coldname <- cold$name[1]
 
 coldtime <- cold$time[1]
 damn <- data.frame(guessname, guesstime)
 
-joke <- newcsv[grep("[¯º¸Ü]", newcsv$main), ]
+joke <- newcsv[grep("[ï¿½ï¿½ï¿½ï¿½]", newcsv$main), ]
 jokename <- joke$name[1]
 
 jokestime <- joke$time[1]
 
 
-funny <- newcsv[grep("[½ì¨Æ]", newcsv$main), ]
+funny <- newcsv[grep("[ï¿½ï¿½ï¿½]", newcsv$main), ]
 funnyname <- funny$name[1]
 
 funnytime <- funny$time[1]
@@ -299,17 +261,17 @@ kusoname <- kuso$name[1]
 
 kusotime <- kuso$time[1]
 
-bullshit <- newcsv[grep("[»¨Ïm]", newcsv$main), ]
+bullshit <- newcsv[grep("[ï¿½ï¿½ï¿½m]", newcsv$main), ]
 bullshitname <- bullshit$name[1]
 
 bullshittime <- bullshit$time[1]
 
-viedo <- newcsv[grep("[¼v¤ù]", newcsv$main), ]
+viedo <- newcsv[grep("[ï¿½vï¿½ï¿½]", newcsv$main), ]
 viedoname <- viedo$name[1]
 
 viedotime <- viedo$time[1]
 
-announce <- newcsv[grep("[¤½§i]", newcsv$main), ]
+announce <- newcsv[grep("[ï¿½ï¿½ï¿½i]", newcsv$main), ]
 announcename <- announce$name[1]
 
 announcetime <- announce$time[1]
@@ -328,7 +290,7 @@ Cv = ddply(bullshit, c("main"), summarise, MM = sum(contentNum))
 Cv = ddply(viedo, c("main"), summarise, MM = sum(contentNum))
 Cv = ddply(announce, c("main"), summarise, MM = sum(contentNum))
 
-pv <- c("[²qÁ¼]","[¢æ¢Ò]","[­A§N]","[¯º¸Ü]","[½ì¨Æ]","[Â½Ä¶]","[kuso]","[»¨Ïm]","[¼v¤ù]")
+pv <- c("[ï¿½qï¿½ï¿½]","[ï¿½ï¿½ï¿½]","[ï¿½Aï¿½N]","[ï¿½ï¿½ï¿½ï¿½]","[ï¿½ï¿½ï¿½]","[Â½Ä¶]","[kuso]","[ï¿½ï¿½ï¿½m]","[ï¿½vï¿½ï¿½]")
 cv <- c(1854,1339,1450,1099,767,56,318,50,43)
 cvpv <- data.frame(pv,cv)
 cvpv
@@ -344,22 +306,22 @@ kuso1 <- data.frame(nrow(kuso))
 bullshit1 <- data.frame(nrow(bullshit))
 viedo1 <- data.frame(nrow(viedo))
 announce1 <- data.frame(nrow(announce))
-¥¼¤ÀÃþ <- data.frame(1091)
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ <- data.frame(1091)
 theme <- data.frame()
 
-theme <- data.frame(guess1,xd1,cold1,joke1,funny1,trans1,kuso1,bullshit1,viedo1,announce1,¥¼¤ÀÃþ)
+theme <- data.frame(guess1,xd1,cold1,joke1,funny1,trans1,kuso1,bullshit1,viedo1,announce1,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
-names(theme)[1] = "[²qÁ¼]"
-names(theme)[2] = "[¢æ¢Ò]"
-names(theme)[3] = "[­A§N]"
-names(theme)[4] = "[¯º¸Ü]"
-names(theme)[5] = "[½ì¨Æ]"
+names(theme)[1] = "[ï¿½qï¿½ï¿½]"
+names(theme)[2] = "[ï¿½ï¿½ï¿½]"
+names(theme)[3] = "[ï¿½Aï¿½N]"
+names(theme)[4] = "[ï¿½ï¿½ï¿½ï¿½]"
+names(theme)[5] = "[ï¿½ï¿½ï¿½]"
 names(theme)[6] = "[Â½Ä¶]"
 names(theme)[7] = "[kuso]"
-names(theme)[8] = "[»¨Ïm]"
-names(theme)[9] = "[¼v¤ù]"
-names(theme)[10] = "[¤½§i]"
-names(theme)[11] = "¥¼¤ÀÃþ"
+names(theme)[8] = "[ï¿½ï¿½ï¿½m]"
+names(theme)[9] = "[ï¿½vï¿½ï¿½]"
+names(theme)[10] = "[ï¿½ï¿½ï¿½i]"
+names(theme)[11] = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 
 grep("Re:", csv12$name[23])
 
@@ -387,36 +349,36 @@ bullshits <- 0
 temp <- data.frame()
 for( index in (1:1979) ){
   temp <- reply$name[index]
-    if(grepl("[²qÁ¼]",temp))
+    if(grepl("[ï¿½qï¿½ï¿½]",temp))
       guesss = guesss + 1
-    if(grepl("[¢æ¢Ò]",temp))
+    if(grepl("[ï¿½ï¿½ï¿½]",temp))
       xds = xds + 1 
-    if(grepl("[­A§N]",temp))
+    if(grepl("[ï¿½Aï¿½N]",temp))
      colds = colds + 1 
-    if(grepl("[¯º¸Ü]",temp))
+    if(grepl("[ï¿½ï¿½ï¿½ï¿½]",temp))
       jokes = jokes + 1 
-    if(grepl("[½ì¨Æ]",temp))
+    if(grepl("[ï¿½ï¿½ï¿½]",temp))
       funnys =  funnys + 1 
     if(grepl("[Â½Ä¶]",temp))
       trans = trans + 1 
     if(grepl("[kuso]",temp))
       kusos = kusos + 1 
-    if(grepl("[»¨Ïm]",temp))
+    if(grepl("[ï¿½ï¿½ï¿½m]",temp))
       bullshits = bullshits + 1 
    
   }
 }
 
 
-Tname <-c("[²qÁ¼]","[¢æ¢Ò]","[­A§N]","[¯º¸Ü]","Re:","[½ì¨Æ]","[Â½Ä¶]","Fw:","[kuso]","[»¨Ïm]","[¼v¤ù]","[¤½§i]","¥¼¤ÀÃþ")
-Tnumber <- c(table(grepl('[²qÁ¼]',csv12$name))[2],table(grepl('[¢æ¢Ò]',csv12$name))[2],table(grepl('[­A§N]',csv12$name))[2],table(grepl('[¯º¸Ü]',csv12$name))[2],table(grepl('Re:',csv12$name))[2],table(grepl('[½ì¨Æ]',csv12$name))[2],table(grepl('[Â½Ä¶]',csv12$name))[2],table(grepl('Fw:',csv12$name))[2],table(grepl('[kuso]',csv12$name))[2],table(grepl('[»¨Ïm]',csv12$name))[2],table(grepl('[¼v¤ù]',csv12$name))[2],
-table(grepl('[¤½§i]',csv12$name))[2],771)
+Tname <-c("[ï¿½qï¿½ï¿½]","[ï¿½ï¿½ï¿½]","[ï¿½Aï¿½N]","[ï¿½ï¿½ï¿½ï¿½]","Re:","[ï¿½ï¿½ï¿½]","[Â½Ä¶]","Fw:","[kuso]","[ï¿½ï¿½ï¿½m]","[ï¿½vï¿½ï¿½]","[ï¿½ï¿½ï¿½i]","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
+Tnumber <- c(table(grepl('[ï¿½qï¿½ï¿½]',csv12$name))[2],table(grepl('[ï¿½ï¿½ï¿½]',csv12$name))[2],table(grepl('[ï¿½Aï¿½N]',csv12$name))[2],table(grepl('[ï¿½ï¿½ï¿½ï¿½]',csv12$name))[2],table(grepl('Re:',csv12$name))[2],table(grepl('[ï¿½ï¿½ï¿½]',csv12$name))[2],table(grepl('[Â½Ä¶]',csv12$name))[2],table(grepl('Fw:',csv12$name))[2],table(grepl('[kuso]',csv12$name))[2],table(grepl('[ï¿½ï¿½ï¿½m]',csv12$name))[2],table(grepl('[ï¿½vï¿½ï¿½]',csv12$name))[2],
+table(grepl('[ï¿½ï¿½ï¿½i]',csv12$name))[2],771)
 Tnumber
 Title <- data.frame(Tname,Tnumber)
 Title
 
 
-table(grepl('[²qÁ¼]',csv12$name))[2]
+table(grepl('[ï¿½qï¿½ï¿½]',csv12$name))[2]
 Cv5$FF[88] <- m[2]
 Tdata <-csv12$name
 tadaa[1]<-Tdata[1]
@@ -447,15 +409,15 @@ View(title)
 
 
 library(plyr);   Cv = ddply(csv12, c("author"), summarise, FF=unique(length(time)), MM=sum(contentNum))  #-- Frequency & Monetary
-Cv$UU = Cv$MM/Cv$FF    #-- ­pºâ«È³æ»ù (¥­§¡¨C¦¸ÁÊ¶Rª÷ÃB) (UU)
+Cv$UU = Cv$MM/Cv$FF    #-- ï¿½pï¿½ï¿½È³ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Ê¶Rï¿½ï¿½ï¿½B) (UU)
 Fbreaks = c(0,1,4,25,100,700,1810);                  Cv$FF0 <- cut(Cv$FF,breaks=Fbreaks);      
 Mbreaks = c(0,1000,3000,10000,30000,150000);   Cv$MM0 <- cut(Cv$MM,breaks=Mbreaks);  
 Ubreaks = c(-1,500,1000,4000,15000,100000);    Cv$UU0 <- cut(Cv$UU,breaks=Ubreaks);    
 dim(Cv);   head(Cv)
 
-# 4.¼Æ¾Ú¼Ò«¬ -- «È¼h¤ÀªR¡A¬O SPC ¤j¼Æ¾Ú¼Ò«¬ªº²Ä¤@¨B¡A¤]¬O¼Æ¾Ú«õ±¸ªº²Ä¤@ÁûÆp¥Û
+# 4.ï¿½Æ¾Ú¼Ò«ï¿½ -- ï¿½È¼hï¿½ï¿½ï¿½Rï¿½Aï¿½O SPC ï¿½jï¿½Æ¾Ú¼Ò«ï¿½ï¿½ï¿½ï¿½Ä¤@ï¿½Bï¿½Aï¿½]ï¿½Oï¿½Æ¾Ú«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¤@ï¿½ï¿½ï¿½pï¿½ï¿½
 
-## 4.1.RFM¼Ò«¬¤¤ªº«È¤á»ù­È (±`¶Q«È)
+## 4.1.RFMï¿½Ò«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ (ï¿½`ï¿½Qï¿½ï¿½)
 table(Cv$FF0,Cv$MM0)
 
 ##
@@ -477,12 +439,12 @@ DataN <- csv12[1:7000,]
 
 
 ##
-## 3.4.[±Ð¾Ç¤º®e] ±´°Q³y³XÀW¦¸(FF)¤§¤À¥¬
-range(Cv$FF)                       #-- (1) ¥ý¬Ý FFªº¤À¥¬½d³ò               
-hist(Cv$FF,5);   table(Cv$FF)    #-- (2) ¥Hª½¤è¹Ï(histogram)»PtableÆ[¹î FFªº¤À¥¬¼ËºA
-table(cut(Cv$FF,breaks=c(0,1,16,32,65,197,1810)))                                    #-- (3) ¹êÅç¤Á¤Àªº¥i¯à
-Cv$FF0 <- cut(Cv$FF,breaks=c(0,1,16,32,65,197,1810));    Fbreaks=c(0,1,16,32,65,197,1810)  #-- (4) º¡·Nªº¤Á¤À³]©w
-Cv$MM0 <- cut(Cv$MM,breaks=c(0,50,75,100,250,500,9650));    Fbreaks=c(0,50,75,100,250,500,9650)  #-- (4) º¡·Nªº¤Á¤À³]©w
+## 3.4.[ï¿½Ð¾Ç¤ï¿½ï¿½e] ï¿½ï¿½ï¿½Qï¿½yï¿½Xï¿½Wï¿½ï¿½(FF)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+range(Cv$FF)                       #-- (1) ï¿½ï¿½ï¿½ï¿½ FFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½               
+hist(Cv$FF,5);   table(Cv$FF)    #-- (2) ï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½(histogram)ï¿½Ptableï¿½[ï¿½ï¿½ FFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ËºA
+table(cut(Cv$FF,breaks=c(0,1,16,32,65,197,1810)))                                    #-- (3) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½
+Cv$FF0 <- cut(Cv$FF,breaks=c(0,1,16,32,65,197,1810));    Fbreaks=c(0,1,16,32,65,197,1810)  #-- (4) ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½w
+Cv$MM0 <- cut(Cv$MM,breaks=c(0,50,75,100,250,500,9650));    Fbreaks=c(0,50,75,100,250,500,9650)  #-- (4) ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½w
 Cv$UU = Cv$MM/Cv$FF
 table (Cv$FFO,Cv$MM0)
 ddply()
